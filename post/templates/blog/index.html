@@ -1,0 +1,168 @@
+{% extends "blog/idxlayout.html" %}
+{% load static %}
+{% block title %}
+    Index
+{% endblock %}
+
+{% block body %}
+	<header class="intro-header" id="intro-header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url('{% static 'blog/index-bg-ds.png' %}');">
+		<div class="header-mask"></div>
+		<div class="container">
+			<div class="row text-white">
+				<div class="col-lg col-lg-offset-1 col-md col-md-offset-1 col-sm col-sm-offset-0">
+					<div class="site-heading">
+						<h1 class="title d-flex justify-content-center font-weight-bold">SWong's Blog</h1>
+						<span class="subheading"><p>"Life isn't about waiting for the storm to pass. It's about learning how to dance in rain."</p><p class="text-right">- Vivian Greene</p></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+    <div class="appcontent hbox">
+        <div class="col postlist p-3 m-4" style="width:auto;">
+            {% if posts|length == 0 %}
+                <h3 class="p-5" style="text-align: center; font-weight: bold; font-family: 'Belanosima', Arial; ">No post available.</h3>
+            {% endif %}
+            {% for post in posts %}
+                <div class="mb-4 single-post box-shadow-wrap-normal">
+                    <div class="p-4 wrapper-lg">
+                        <h2 class="index-post-title font-weight-bold">
+                            <a href="{% url 'viewpost' post_suffix=post.suffix %}">{{post.title}}</a>
+                        </h2>
+                        <p class="summary l-h-2x text-muted text-ellipsis">
+                            {% if post.introduction %}
+                                {{post.introduction}}
+                            {% else %}
+                                {{post.content}}
+                            {% endif %}
+                        </p>
+                        <div class="line line-lg b-b b-light"></div>
+                        <div class="text-muted post-item-foot-icon text-ellipsis list-inline">
+                            <li>
+                                <span class="m-r-sm right-small-icons">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="12" cy="7" r="4"></circle>
+                                    </svg>
+                                </span>
+                                <span>{{post.author}}</span>
+                            </li>
+                            <li>
+                                <span class="right-small-icons m-r-sm">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </span>
+                                {{post.createdDate|date:'M d, Y h:i A'}}
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <ul class="pagination justify-content-center">
+                {% if posts.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ posts.previous_page_number }}">
+                            &lt;
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <div class="page-link">
+                            &lt;
+                        </div>
+                    </li>
+                {% endif %}
+                {% for num in page_range %}
+                    {% if num == "…" %}
+                    <li class="page-item disabled">
+                        <div class="page-link">
+                            {{num}}
+                        </div>
+                    </li>
+                    {% elif posts.number == num %}
+                        <li class="page-item active">
+                            <div class="page-link">
+                                {{num}}
+                            </div>
+                        </li>
+                    {% else %}
+                        <li class="page-item ">
+                            <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                {% if posts.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ posts.next_page_number }}">
+                            &gt;
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <div class="page-link">
+                            &gt;
+                        </div>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>        
+        <aside class="asideBar bg-white-only col w-md" style="padding: 0px;" role="complementary">
+            <div class="no-border-xs" id="sidebar">
+                <section id="blog_info" class="m-3 pb-3 widget widget_categories wrapper-md clear">
+                    <h5 class="widget-title m-t-none">Blog Info</h5>
+                    <ul class="list-group box-shadow-wrap-normal">
+                        <li class="list-group-item text-second">
+                            <span class="blog-info-icons">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-award">
+                                    <circle cx="12" cy="8" r="7"></circle>
+                                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                                </svg>
+                            </span> 
+                            <span class="badge pull-right">{{posts_length}}</span>
+                            Posts
+                        </li>
+                        <li class="list-group-item text-second">
+                            <span class="blog-info-icons"> 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                            </span>
+                            <span class="badge pull-right">{{diff}} days</span>
+                            Operated
+                        </li>
+                        <li class="list-group-item text-second">
+                            <span class="blog-info-icons"> 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                                </svg>
+                            </span> 
+                            <span class="badge pull-right">{{lastactivity}}ago</span>
+                            Last Activity
+                        </li>
+                    </ul>
+                </section>
+                <section id="tag_cloud-2" class="m-3 widget widget_tag_cloud wrapper-md clear">
+                    <h5 class="widget-title m-t-none">Tags</h5>
+                    <div class="tags l-h-2x">
+						<a href="/index" class="label badge">All</a>
+					</div>
+                    {% for tag in tags %}
+                        <div class="tags l-h-2x">
+                            <a href="/category/?q={{tag.category_name}}" class="label badge">{{tag.category_name}}</a>
+                        </div>
+                    {% endfor %}
+                </section>
+            </div>
+        </aside>
+    </div>
+    
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'blog/index.js' %}"></script>
+{% endblock %}

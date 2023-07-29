@@ -1,0 +1,236 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+  #card {
+    min-height: 430px;
+  }
+}
+@media screen and (min-width: 600px) {
+  #card {
+    min-height: 520px;
+  }
+}
+a#blog-brand {
+  font-family: "Audiowide", serif;
+}
+a#anavlink {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-weight: 400;
+  font-size: 100%;
+  font-family: "Belanosima", Arial;
+}
+.body {
+  width: 100%;
+}
+.title {
+  font-family: "CMU Sans Serif", sans-serif;
+}
+.sliderContainer {
+  background-color: #00ffea;
+  width: 80vmin;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  border-radius: 0 0 5px 5px;
+}
+input[type="range"] {
+  position: relative;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: block;
+  width: 80%;
+  height: 8px;
+  border-radius: 8px;
+  background-color: #d5d5d5;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  height: 8px;
+}
+input[type="range"]::-moz-track {
+  -moz-appearance: none;
+  height: 8px;
+}
+input[type="range"]::-ms-track {
+  appearance: none;
+  height: 8px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: #3264fe;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px;
+  border: none;
+}
+input[type="range"]::-moz-range-thumb {
+  -mos-appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: #3264fe;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px;
+  border: none;
+}
+input[type="range"]::-ms-thumb {
+  appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: #3264fe;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px;
+  border: none;
+}
+input[type="range"]:active::-webkit-slider-thumb {
+  background-color: #ffffff;
+  border: 3px solid #3264fe;
+}
+#slider-value {
+  width: 13%;
+  position: relative;
+  background-color: #3264fe;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+  padding: 5px 0;
+  border-radius: 5px;
+}
+.line-break {
+  width: 100%;
+  height: 1px;
+}
+#card {
+  background-color: rgba(255, 248, 220, 0.5);
+  border: 2px solid rgb(218, 204, 185);
+  min-width: 300px;
+  width: 18rem!important;
+}
+#card .btn {
+  position: absolute;
+  bottom: 20px;
+}
+.btn-group label.btn {
+  font-family: "Roboto Mono", monospace;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
+  background: #212529;
+  font-family: "Audiowide", serif;
+}
+.footer .footer-site-logo {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.footer .footer-site-logo {
+  color: #00eaff;
+}
+.footer .nav-links {
+  padding: 0;
+  margin: 0;
+}
+.footer .nav-links li {
+  display: inline-block;
+}
+.footer .nav-links li a {
+  padding: 10px;
+  color: #ffffff;
+}
+.footer .nav-links li a:hover {
+  color: #dadada;
+}
+.footer .social p {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+.footer .social ul li {
+  display: inline-block;
+}
+.footer .social ul li a {
+  display: inline-block;
+  padding: 10px;
+}
+@font-face {
+  font-family: "icomoon";
+  src: url("../icomoon/fonts/icomoon.eot?9hnsj6");
+  src: url("../icomoon/fonts/icomoon.eot?9hnsj6#iefix")
+      format("embedded-opentype"),
+    url("../icomoon/fonts/icomoon.ttf?9hnsj6") format("truetype"),
+    url("../icomoon/fonts/icomoon.woff?9hnsj6") format("woff"),
+    url("../icomoon/fonts/icomoon.svg?9hnsj6#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-linkedin:before {
+  content: "\eac9";
+}
+.icon-github:before {
+  content: "\eab0";
+}
+.icon-email:before {
+  content: "\ea83";
+}
+.footer .social ul li.linkedin a {
+  color: #0077b5;
+}
+.footer ul li.github a {
+  color: #00ddff;
+}
+.footer .social ul li.email a {
+  color: #ffffff;
+}
+.footer .copyright {
+  color: #999999;
+}
+.icon-home:before {
+  content: "\e900";
+}
+.footer ul li.home span {
+  color: #ffffff;
+  padding-right: 3px;
+}
+.icon-tools:before {
+  content: "\e996";
+}
+.footer ul li.tools span {
+  color: #ffffff;
+  padding-right: 3px;
+}
+.icon-manage:before {
+  content: "\e992";
+}
+.footer ul li.manage span {
+  color: #ffffff;
+  padding-right: 3px;
+}

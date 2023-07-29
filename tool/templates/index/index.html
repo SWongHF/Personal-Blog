@@ -1,0 +1,54 @@
+{% extends "index/layout.html" %}
+{% load static %}
+{% block title %}
+    Tools Page
+{% endblock %}
+
+{% block body %}
+	<h2 class="title d-flex text-align-left font-weight-bold">Tools</h2>
+	<div class="line-break" style="background-color: rgb(73, 73, 73); margin-bottom: 20px;"></div>
+	<div class="d-flex justify-content-center">
+        <div class="row d-flex justify-content-begin">
+            <div class="card m-3 col-sm-3 col-md-2" id="card">
+                <img class="p-3 card-img-top" src="{% static 'index/1.jpg' %}" alt="FFT Curve Fitting Visualizer">
+                <div class="card-body">
+                    <h5 class="card-title">Fourier Series</h5>
+                    <div class="line-break" style="background-color: rgb(73, 73, 73); margin-bottom: 20px;"></div>
+                    <p class="card-text">This tool visualizes 2D contour fitting with Fourier Series applied. User is able to control the approximation precision and the animation speed.</p>
+                    <a href="fft/" class="btn btn-danger">Enter</a>
+                </div>
+            </div>
+            <div class="card m-3 col-sm-3 col-md-2" id="card">
+                <img class="p-3 card-img-top" src="{% static 'index/2.jpg' %}" alt="Weather">
+                <div class="card-body">
+                    <h5 class="card-title">Weather</h5>
+                    <div class="line-break" style="background-color: rgb(73, 73, 73); margin-bottom: 20px;"></div>
+                    <p class="card-text">This tool fetches data from Hong Kong Observatory (HKO) and displays relevant information about current weather.</p>
+                    <a href="weather/" class="btn btn-warning">Enter</a>
+                </div>
+            </div>
+            <div class="card m-3 col-sm-3 col-md-2" id="card">
+                <img class="p-3 card-img-top" src="{% static 'index/3.jpg' %}" alt="Markdown Editor">
+                <div class="card-body">
+                    <h5 class="card-title">Markdown Editor</h5>
+                    <div class="line-break" style="background-color: rgb(73, 73, 73); margin-bottom: 20px;"></div>
+                    <p class="card-text">The tool powered by editor.md enables user to edit markdown text online with dynamic rendered preview.</p>
+                    <a href="markdown/" class="btn btn-success">Enter</a>
+                </div>
+            </div>
+            <div class="card m-3 col-sm-3 col-md-2" id="card">
+                <img class="p-3 card-img-top" src="{% static 'index/4.jpg' %}" alt="8-Puzzle Game">
+                <div class="card-body">
+                    <h5 class="card-title">The 8-puzzle Game</h5>
+                    <div class="line-break" style="background-color: rgb(73, 73, 73); margin-bottom: 20px;"></div>
+                    <p class="card-text">The classic block sliding game. Restore the puzzle into the ordered state. Solver is provided for newbies.</p>
+                    <a href="puzzle/" class="btn btn-primary">Enter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+	<script src="{% static 'index/index.js' %}"></script>
+{% endblock %}

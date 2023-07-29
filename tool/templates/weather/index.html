@@ -1,0 +1,141 @@
+{% extends "weather/layout.html" %}
+{% load static %}
+{% block title %}
+    Weather Widget
+{% endblock %}
+
+{% block body %}
+    <h2 class="title d-flex text-align-left font-weight-bold">Weather</h2>
+    <div class="line-break" style="background-color: rgb(73, 73, 73); margin-bottom: 20px;"></div>
+    <div class="weather-content p-1" style="display: none!important;">
+        <section style="background-color: #C1CFEA;">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100" style="color: #282828;">
+                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-8">
+                        <div class="card mb-4" style="border-radius: 25px;">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between pb-2">
+                                    <div>
+                                        <h2 class="display-2">
+                                            <strong class="currentTemperature">N/A</strong>
+                                        </h2>
+                                        <p class="text-muted mb-0 currentPositionnDatetime">N/A</p>
+                                    </div>
+                                    <div>
+                                        <div>
+                                            <img class="currentWeatherIcon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/not-available.svg" width="112px">
+                                        </div>
+                                        <div class="text-center">
+                                            <div class="currentWeatherInfo badge badge-pill badge-secondary px-3">N/A</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-between px-3 py-1 mx-4 shadow-sm rounded-pill" style="background:#f8f8f8">
+                                    <div class="d-flex justify-content-between weather-today-info">
+                                        <img class="currentDeltaTemperatureIcon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/thermometer-glass-celsius.svg" style="height: 1.75rem;">
+                                        <div class="currentDeltaTemperature text-info font-weight-bold">N/A</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between weather-today-info">
+                                        <img class="currentWindSpeedIcon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/windsock.svg" style="height: 1.75rem;">
+                                        <div class="currentWindSpeed text-info font-weight-bold">N/A</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between weather-today-info">
+                                        <img class="currentHumidityIcon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/humidity.svg" style="height: 1.75rem;">
+                                        <div class="currentHumidity text-info font-weight-bold">N/A</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between weather-today-info">
+                                        <img class="currentRainfallIcon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/raindrop-measure.svg" style="height: 1.75rem;">
+                                        <div class="currentRainfall text-info font-weight-bold">N/A</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between weather-today-info">
+                                        <img class="currentUVLevelIcon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/uv-index.svg" style="height: 1.75rem;">
+                                        <div class="currentUVLevel text-info font-weight-bold">N/A</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4" style="border-radius: 25px;">
+                            <div class="card-body p-4">
+                                    <div class="d-flex justify-content-around text-center pb-2">
+                                        <div class="flex-column">
+                                            <p class="small temperatureTime1"><strong>N/A</strong></p>
+                                            <img class="Time1Icon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/not-available.svg" style="height: 5.75rem;">
+                                            <p class="mb-0 Time1"><strong>N/A</strong></p>
+                                        </div>
+                                        <div class="flex-column">
+                                            <p class="small temperatureTime2"><strong>N/A</strong></p>
+                                            <img class="Time2Icon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/not-available.svg" style="height: 5.75rem;">
+                                            <p class="mb-0 Time2"><strong>N/A</strong></p>
+                                        </div>
+                                        <div class="flex-column">
+                                            <p class="small temperatureTime3"><strong>N/A</strong></p>
+                                            <img class="Time3Icon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/not-available.svg" style="height: 5.75rem;">
+                                            <p class="mb-0 Time3"><strong>N/A</strong></p>
+                                        </div>
+                                        <div class="flex-column">
+                                            <p class="small temperatureTime4"><strong>N/A</strong></p>
+                                            <img class="Time4Icon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/not-available.svg" style="height: 5.75rem;">
+                                            <p class="mb-0 Time4"><strong>N/A</strong></p>
+                                        </div>
+                                        <div class="flex-column">
+                                            <p class="small temperatureTime5"><strong>N/A</strong></p>
+                                            <img class="Time5Icon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/not-available.svg" style="height: 5.75rem;">
+                                            <p class="mb-0 Time5"><strong>N/A</strong></p>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="card mb-4 bg-light" style="border-radius: 5px;">
+                            <div class="card-header"><strong>Weather Information</strong></div>
+                            <div class="card-body currentWeatherSituation p-4">
+                                ---
+                            </div>
+                        </div>
+                        <div class="card mb-4" style="border-radius: 25px;">
+                            <div class="card-body p-4">
+                                    <div class="d-flex justify-content-around text-center pb-2">
+                                        <div class="flex-column">
+                                            <p class="small temperatureDay1"><strong>N/A</strong></p>
+                                            <img class="Day1Icon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/not-available.svg" style="height: 5.75rem;">
+                                            <p class="mb-0 Day1"><strong>N/A</strong></p>
+                                        </div>
+                                        <div class="flex-column">
+                                            <p class="small temperatureDay2"><strong>N/A</strong></p>
+                                            <img class="Day2Icon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/not-available.svg" style="height: 5.75rem;">
+                                            <p class="mb-0 Day2"><strong>N/A</strong></p>
+                                        </div>
+                                        <div class="flex-column">
+                                            <p class="small temperatureDay3"><strong>N/A</strong></p>
+                                            <img class="Day3Icon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/not-available.svg" style="height: 5.75rem;">
+                                            <p class="mb-0 Day3"><strong>N/A</strong></p>
+                                        </div>
+                                        <div class="flex-column">
+                                            <p class="small temperatureDay4"><strong>N/A</strong></p>
+                                            <img class="Day4Icon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/not-available.svg" style="height: 5.75rem;">
+                                            <p class="mb-0 Day4"><strong>N/A</strong></p>
+                                        </div>
+                                        <div class="flex-column">
+                                            <p class="small temperatureDay5"><strong>N/A</strong></p>
+                                            <img class="Day5Icon" src="https://bmcdn.nl/assets/weather-icons/v3.0/fill/svg/not-available.svg" style="height: 5.75rem;">
+                                            <p class="mb-0 Day5"><strong>N/A</strong></p>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
+
+{% block loader %}
+    <div class="loader"></div>
+{% endblock %}
+
+{% block script %}
+	<script src="{% static 'index/index.js' %}"></script>
+    <script src="{% static 'weather/weather.js' %}"></script>
+    <link href="{% static 'weather/styles.css' %}" rel="stylesheet">
+    <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>    
+{% endblock %}

@@ -1,0 +1,163 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Manage - SWong's Blog</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Belanosima:400,600">
+        <link rel="stylesheet" href="https://fontlibrary.org//face/cmu-sans-serif" type="text/css"/>
+        <link rel="icon" type="image/x-icon" href="{% static 'blog/favicon.ico' %}">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static 'blog/editor.md/css/editormd.min.css' %}" />
+        <link href="{% static 'blog/startbootstrap-sb-admin-gh-pages/css/styles.css' %}" rel="stylesheet" />
+        <script src="{% static 'blog/editor.md/editormd.min.js' %}"></script>
+        <script src="{% static 'blog/editor.md/languages/en.js' %}"></script>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function () {
+                var editor = editormd("editormd", {
+                    // width: "100%",
+                     height: "60vh",
+                    // markdown: "xxxx",     // dynamic set Markdown text
+                    tex: true,
+                    path : "{% static 'markdown_editor/editor.md/lib/' %}"  // Autoload modules mode, codemirror, marked... dependents libs path
+                });
+                editormd.katexURL = {
+                js : "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min", 
+                css : "https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.3.0/katex.min" 
+                };
+            });
+        </script>
+        <script src="{% static 'blog/form_control.js' %}"></script>
+        <script src="{% static 'blog/post_manager_config_create.js' %}"></script>
+    </head>
+    <body>
+        
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading d-flex justify-content-center" style="text-align: center;">
+                                <a class="navbar-brand" id="blog-brand" href="/" style="margin:0;">
+                                    <img src="{% static 'blog/logo.png' %}" width="100%" alt="">
+                                    <div>Blog Management</div>
+                                </a>
+                                
+                            </div>
+                            <div class="line-break"></div>
+                            <a class="nav-link" href="/manage">
+                                <div class="sb-nav-link-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                        <path fill="rgb(255,255,255,0.25)" d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zM288 96a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM256 416c35.3 0 64-28.7 64-64c0-17.4-6.9-33.1-18.1-44.6L366 161.7c5.3-12.1-.2-26.3-12.3-31.6s-26.3 .2-31.6 12.3L257.9 288c-.6 0-1.3 0-1.9 0c-35.3 0-64 28.7-64 64s28.7 64 64 64zM176 144a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM96 288a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm352-32a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/>
+                                    </svg>
+                                </div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link" href="/manage/post">
+                                <div class="sb-nav-link-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="0.9rem" viewBox="0 0 576 512">
+                                        <path fill="rgb(255,255,255,0.25)" d="M249.6 471.5c10.8 3.8 22.4-4.1 22.4-15.5V78.6c0-4.2-1.6-8.4-5-11C247.4 52 202.4 32 144 32C93.5 32 46.3 45.3 18.1 56.1C6.8 60.5 0 71.7 0 83.8V454.1c0 11.9 12.8 20.2 24.1 16.5C55.6 460.1 105.5 448 144 448c33.9 0 79 14 105.6 23.5zm76.8 0C353 462 398.1 448 432 448c38.5 0 88.4 12.1 119.9 22.6c11.3 3.8 24.1-4.6 24.1-16.5V83.8c0-12.1-6.8-23.3-18.1-27.6C529.7 45.3 482.5 32 432 32c-58.4 0-103.4 20-123 35.6c-3.3 2.6-5 6.8-5 11V456c0 11.4 11.7 19.3 22.4 15.5z"/>
+                                    </svg>
+                                </div>
+                                Posts
+                            </a>
+                            <a class="nav-link" href="/manage/category">
+                                <div class="sb-nav-link-icon"><i class="fa fa-solid fa-tag"></i></div>
+                                Categories
+                            </a>
+                            <a class="nav-link" href="/manage/image">
+                                <div class="sb-nav-link-icon"><i class="fa fa-solid fa-image"></i></div>
+                                Images
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        {{user.username}}
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-5">
+                        <h2 class="mt-4 title">Create Post</span></h2>
+                        <form action="javascript:void(0);" id="form">
+                            <div class="row mb-2">
+                                <div class="form-group col-md-9">
+                                    <label for="inputTitle">Title <small>(required)</small></label>
+                                    <input type="text" class="form-control" name="title" id="inputTitle" placeholder="Title" value="">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="inputAuthor">Author <small>(required)</small></label>
+                                    <input type="text" class="form-control" name="author" id="inputAuthor" placeholder="Author" value="">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="form-group col-md-6">
+                                    <label for="inputSuffix">URL Suffix <small>(required)</small></label>
+                                    <input type="text" class="form-control" name="suffix" id="inputSuffix" placeholder="URL ID" value="">
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputCategories">Categories <small>(optional, split by ';')</small></label>
+                                    <input type="text" class="form-control" name="categories" id="inputCategories" placeholder="Categories" value="">
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="inputPriority">Priority</label>
+                                    <input type="number" class="form-control" name="priority" id="inputPriority" min="1" max="9" placeholder="Priority" value="5">
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="form-group col-md-12">
+                                    <label for="inputIntroduction">Introduction <small>(optional)</small></label>
+                                    <textarea class="form-control" name="introduction" id="inputIntroduction" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="form-group col-md-12">
+                                    <label for="inputContent">Post Content</label>
+                                    <div class="editormd" id="editormd">
+                                        <!-- Tips: Editor.md can auto append a `<textarea>` tag -->
+                                        <textarea class="editormd-html-textarea" id="inputContent" name="editorhtml" style="display:none;"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <label for="inputContent">Status <small>(required)</small></label>
+                                <div class="form-group">
+                                    
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="status" id="statusVisible" value="Visible" checked="checked">
+                                            <label class="form-check-label" for="statusVisible">Visible</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="status" id="statusHidden" value="Hidden"  >
+                                            <label class="form-check-label" for="statusHidden">Hidden</label>
+                                        </div>
+
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-create">Submit</button>
+                        </form>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto" style="font-family: 'Audiowide', serif;">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; SWong's Blog, {% now "Y" %}</div>
+                            <div>
+                                <a href="/index">Home</a>
+                                &middot;
+                                <a href="/tools">Tools</a>
+                                &middot;
+                                <a href="/manage">Manage</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manage - SWong's Blog</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Belanosima:400,600">
+        <link rel="stylesheet" href="https://fontlibrary.org//face/cmu-sans-serif" type="text/css"/>
+        <link href="{% static 'blog/styles.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="{% static 'blog/favicon.ico' %}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>        
+        <script src="{% static 'blog/index.js' %}"></script>
+        
+    </head>
+    <body>
+        <nav class="navbar navbar-expand navbar-dark bg-dark justify-content-between">
+            <a class="navbar-brand" id="blog-brand" href="../../">
+                <img src="{% static 'blog/logo.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+                SWong's Blog
+            </a>
+            <div>
+                <ul class="navbar-nav mr-1">
+                    <li class="nav-item">
+                        <a class="nav-link" id="anavlink" href="/index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="anavlink" href="/tools">Tools</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="anavlink" href="/manage">Manage</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <header class="intro-header" id="intro-header" style="background-image: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url('{% static 'blog/index-bg-ds.png' %}');">
+            <div class="header-mask"></div>
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-lg col-lg-offset-1 col-md col-md-offset-1 col-sm col-sm-offset-0">
+                        <div class="site-heading">
+                            <h1 class="title d-flex justify-content-center font-weight-bold">SWong's Blog</h1>
+                            <span class="subheading"><p>"Life isn't about waiting for the storm to pass. It's about learning how to dance in rain."</p><p class="text-right">- Vivian Greene</p></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div id="accessdenied" class="body p-5 mb-3" style="text-align: center;">
+            <div class="row d-flex align-items-center">
+                <div class="col-sm">
+                    <img src="https://cdn.dribbble.com/users/89710/screenshots/4879485/media/cb97603216681f2132367e5dd8b869ae.png" style="max-height: 450px; padding-bottom: 2rem;"></img>
+                </div>
+                <div class="col-sm">
+                    <h2 class="font-weight-bold pb-4">Access Denied</h2>
+                    <h4 style="margin: 1rem;">Sorry, you don't have permissions to view the page. Please go back to the home page or browse other pages.</h4>
+                    <button type="button" class="btn btn-success pl-4 pr-4" style="min-width: 40px;"><a href="/index" style="text-decoration: none; color:white;">Go to home</a></button>
+                </div>
+            </div>
+        </div>
+        <footer class="footer sticky-bottom">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-9 text-center">
+                        <p class="footer-site-logo mb-3">SWong's Blog</p>
+                        <ul class="list-unstyled nav-links mb-3">
+                            <li class="home"><a href="/index"><span class="icon-home"></span>Home</a></li>
+                            <li class="tools"><a href="/tools"><span class="icon-tools"></span>Tools</a></li>
+                            <li class="manage"><a href="/manage"><span class="icon-manage"></span>Manage</a></li>
+                        </ul>
+                        <div class="social mb-1 pt-2 border-top">
+                            <p class="mb-1">Contact</p>
+                            <ul class="list-unstyled mb-1">
+                                <li class="linkedin"><a href="https://www.linkedin.com/in/silas-wong-b8b039269/"><span class="icon-linkedin"></span></a></li>
+                                <li class="github"><a href="https://github.com/SWongHF"><span class="icon-github"></span></a></li>
+                                <li class="email"><a href="mailto: wongsunny4@gmail.com"><span class="icon-email"></span></a></li>
+                            </ul>
+                        </div>
+                        <div class="copyright">
+                            <p class="mb-0"><small>© Silas Wong. All Rights Reserved.</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
