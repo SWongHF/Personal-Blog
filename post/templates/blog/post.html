@@ -188,9 +188,10 @@
 					return `<span class="${className}">${line}</span>`
 				}).join('\n');
 				codeContainer.innerHTML = `${codeHtml}`;
-				$('blockquote').css('padding','1em');
-				$('blockquote').css('border-left','0.25em solid #00aaff');
+				
 			});
+			$('blockquote').css('padding','1em');
+			$('blockquote').css('border-left','0.25em solid #00aaff');
 		});
 	</script>
 {% endblock %}
